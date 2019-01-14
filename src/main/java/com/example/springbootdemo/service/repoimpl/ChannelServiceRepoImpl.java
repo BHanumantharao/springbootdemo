@@ -1,5 +1,6 @@
 package com.example.springbootdemo.service.repoimpl;
 
+import com.example.springbootdemo.exception.ChannelNotFoundException;
 import com.example.springbootdemo.model.Channel;
 import com.example.springbootdemo.processor.ChannelProcessor;
 import com.example.springbootdemo.repository.ChannelRepository;
@@ -32,6 +33,9 @@ public class ChannelServiceRepoImpl implements ChannelService {
     public Channel getChannel(int Id) {
         // java8
         Optional<Channel> channel = channelRepository.findById(Id);
+        if(!channel.isPresent())
+            throw new ChannelNotFoundException("id: "+Id);
+
         return channel.get();
     }
 
