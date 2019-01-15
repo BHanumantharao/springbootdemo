@@ -1,0 +1,26 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    hibernate.ddl-auto: none
+    properties.hibernate.generate_statistics: true
+    show-sql: true
+    properties.hibernate.format_sql: true
+  datasource:
+    url: jdbc:h2:file:~/test
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+
+logging:
+  level:
+    org.hibernate.state: debug
+    org.hibernate.type: trace
+    org.springframework.web: ERROR
+    com.example.springbootdemo: DEBUG, INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /Users/hanu/application.log
