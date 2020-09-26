@@ -1,7 +1,6 @@
 package com.example.springbootdemo.controller;
 
 import com.example.springbootdemo.model.Channel;
-import com.example.springbootdemo.processor.ChannelProcessor;
 import com.example.springbootdemo.service.ChannelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +46,6 @@ public class ChannelRepoController {
     @PutMapping(value = "/channels")
     public ResponseEntity<Channel> updateChannel(@RequestBody Channel channel){
         logger.info("##########  - Update Channel - #########");
-        ChannelProcessor.printMsg();
         channelService.updateChannel(channel);
         return new ResponseEntity("", HttpStatus.OK);
     }

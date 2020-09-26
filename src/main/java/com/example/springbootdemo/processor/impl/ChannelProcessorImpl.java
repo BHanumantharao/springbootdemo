@@ -21,10 +21,14 @@ public class ChannelProcessorImpl implements ChannelProcessor {
             new Channel("CH001", "CHANNEL-1", "Hyderabad", 12345),
             new Channel("CH002", "CHANNEL-2", "Hyderabad", 12346));*/
 
+    private String base64Str = "/9j/4AAQSkZJRgABAgAAAQABAAD/7QCcUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAIAcAmcAFDIwdmw2Z3dEWk9XOFJnZjhWQXp6HAIoAGJGQk1EMDEwMDBhYzIwMzAwMDAyNDFiMDAwMDA0MmIwMDAwZWMyZTAwMDBjZTMyMDAwMDA4M2IwMDAwMGI2MTAwMDAxZDY4MDAwMDI1NmUwMDAwNGM3NDAwMDA2ZGQ0MDAwMP/iAhxJQ0NfUFJPRklMRQABAQAAAgxsY21zAhAAAG1udHJSR0IgWFlaIAfcAAEAGQADACkAOWFjc3BBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtbGNtcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmRlc2MAAAD8AAAAXmNwcnQAAAFcAAAAC3d0cHQAAAFoAAAAFGJrcHQAAAF8AAAAFHJYWVoAAAGQAAAAFGdYWVoAAAGkAAAAFGJYWVoAAAG4AAAAFHJUUkMAAAHMAAAAQGdUUkMAAAHMAAAAQGJUUkMAAAHMAAAAQGRlc2MAAAAAAAAAA2MyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAARkIAAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAAMWAAADMwAAAqRYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9jdXJ2AAAAAAAAABoAAADLAckDYwWSCGsL9hA/FVEbNCHxKZAyGDuSRgVRd13ta3B6BYmxmnysab9908Pp";
     private List<Channel> channels = new ArrayList<>();
     ChannelProcessorImpl(){
-        channels.add(new Channel(1,"CH001", "CHANNEL-1", "Hyderabad", 111111));
-        channels.add(new Channel(2, "CH002", "CHANNEL-2", "Hyderabad", 222222));
+        channels.add(new Channel(1,"CH001",
+                "CHANNEL-1",
+                base64Str, 1717171717));
+        channels.add(new Channel(2, "CH002",
+                "CHANNEL-2", base64Str, 234567856));
     }
 
     @Override
@@ -55,7 +59,7 @@ public class ChannelProcessorImpl implements ChannelProcessor {
             if(channel.getChannelId().equalsIgnoreCase(ch.getChannelId())){
                 ch.setChannelName(channel.getChannelName());
                 ch.setAccessCount(channel.getAccessCount());
-                ch.setRegion(channel.getRegion());
+                ch.setAbout(channel.getAbout());
             }
         }
         return channels;

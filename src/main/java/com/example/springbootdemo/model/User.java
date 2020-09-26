@@ -16,8 +16,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name="CHANNEL")
-public class Channel {
+@Table(name="USER")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,13 +25,13 @@ public class Channel {
     @JsonProperty("ID")
     int id;
 
-    @Column(name = "CHANNEL_ID")
-    @JsonProperty("ChannelId")
-    String channelId;
+    @Column(name = "USER_ID")
+    @JsonProperty("UserId")
+    String userId;
 
-    @Column(name = "CHANNEL_NAME")
-    @JsonProperty("ChannelName")
-    String channelName;
+    @Column(name = "USER_NAME")
+    @JsonProperty("UserName")
+    String userName;
 
     @Lob
     @Type(type = "org.hibernate.type.MaterializedClobType")
@@ -39,13 +39,4 @@ public class Channel {
     @JsonProperty("About")
     String about;
 
-    @Column(name = "ACCESS_ACCOUNT")
-    @JsonProperty("AccessAccount")
-    int accessCount;
-
-    /*@Lob
-    @Type(type = "org.hibernate.type.MaterializedClobType")
-    @Column(name = "ABOUT", length = Integer.MAX_VALUE)
-    @JsonProperty("About")
-    String about;*/
 }
